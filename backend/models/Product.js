@@ -32,12 +32,10 @@ const ProductSchema = new mongoose.Schema(
       required: [true, "Product stock is required"],
       min: [0, "Stock cannot be negative"],
     },
-    images: [
-      {
-        type: String,
-        required: [true, "Product image is required"],
-      },
-    ],
+    image: {
+      type: String,
+      required: [true, "Product image is required"],
+    },
     sizes: [
       {
         type: String,

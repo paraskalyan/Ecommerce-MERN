@@ -1,4 +1,5 @@
-import { redisClient } from "../lib/redis";
+import cloudinary from "../lib/cloudinary.js";
+import { redisClient } from "../lib/redis.js";
 import Product from "../models/Product.js";
 
 export const getAllProducts = async (req, res) => {
@@ -30,6 +31,80 @@ export const getFeaturedProducts = async (req, res) => {
     res.status(200).json({ featuredProducts });
   } catch (error) {
     console.error("Error fetching featured products:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+export const createProduct = async (req, res) => {
+  try {
+    const { name, price, description, brand, sizes, image, stock } = req.body;
+    let cloudinaryResponse = null;
+    if (image) {
+      cloudinaryResponse = await cloudinary.uploader.upload(image, {
+        folder: "products",
+      });
+    }
+
+    const product = await Product.create({
+      name,
+      price,
+      description,
+      brand,
+      sizes,
+      image: cloudinaryResponse ? cloudinaryResponse.secure_url : null,
+      stock,
+    });
+    res.status(201).json({ message: "Product created successfully", product });
+  } catch (error) {
+    console.error("Error creating product:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+export const deleteProduct = async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+    if (!product) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+    if (product.image) {
+      await cloudinary.uploader.destroy(
+        product.image.split("/").pop().split(".")[0]
+      );
+    }
+    await Product.findByIdAndDelete(req.params.id);
+    res.status(200).json({ message: "Product deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting product:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+export const getRecommendedProducts = async (req, res) => {
+  try {
+    const recommendedProducts = await Product.aggregate([
+      //   { $match: { isFeatured: true } },
+      { $sample: { size: 5 } },
+      { $project: { name: 1, price: 1, image: 1, description: 1 } },
+    ]);
+  } catch (error) {
+    console.error("Error fetching recommended products:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+export const getProductsByCategory = async (req, res) => {
+  try {
+    const { category } = req.params;
+    const products = await Product.find({ category });
+    if (!products || products.length === 0) {
+      return res
+        .status(404)
+        .json({ message: "No products found in this category" });
+    }
+    res.status(200).json({ products });
+  } catch (error) {
+    console.error("Error fetching products by category:", error);
     return res.status(500).json({ message: "Internal server error" });
   }
 };
