@@ -9,8 +9,8 @@ const ProtectedRoute = ({ children }) => {
     useEffect(() => {
         checkAuth()
     }, [checkAuth]);
-    // if (!user) return <Navigate to='/login' />
-    console.log(loading)
+    if (!user) return <Navigate to='/login' />
+    console.log(loading, user)
     if (loading) return <PageLoader />
     return children
 }
