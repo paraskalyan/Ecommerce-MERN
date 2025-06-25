@@ -4,8 +4,8 @@ import useProductStore from '../stores/useProductStore'
 import { DeleteIcon, StarIcon, Trash, Trash2 } from 'lucide-react'
 import { Button } from './ui/button'
 const Products = () => {
-    const { products } = useProductStore()
-    console.log(products)
+    const { products, toggleFeaturedProduct, deleteProduct } = useProductStore()
+    console.log("Products:   ", products)
 
     return (
         <div>
@@ -32,9 +32,9 @@ const Products = () => {
                                     <TableCell>{product.brand}</TableCell>
                                     <TableCell>{product.category}</TableCell>
                                     <TableCell>{product.stock}</TableCell>
-                                    <TableCell>{product.featured ? <Button onClick={() => toggleFeaturedProduct(product._id)} className='bg-yellow-400'><StarIcon /></Button> : <Button onClick={() => toggleFeaturedProduct(product._id)} className='bg-gray-300'><StarIcon /></Button>}</TableCell>
+                                    <TableCell><Button onClick={() => toggleFeaturedProduct(product._id)} className={`${product.isFeatured ? 'bg-yellow-400' : 'bg-gray-300'}`}><StarIcon /></Button></TableCell>
                                     <TableCell>
-                                        <Button variant='destructive' size='sm' className=''><Trash2 /></Button>
+                                        <Button onClick={() => deleteProduct(product._id)} variant='destructive' size='sm' className=''><Trash2 /></Button>
                                     </TableCell>
                                 </TableRow>
                             )

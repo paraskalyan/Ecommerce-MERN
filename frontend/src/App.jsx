@@ -10,6 +10,7 @@ import { Toaster } from 'react-hot-toast'
 import { useUserStore } from './stores/useUserStore'
 import PageLoader from './components/PageLoader'
 import Admin from './Pages/Admin'
+import Category from './Pages/Category'
 function App() {
 
   const { user, checkAuth, checkingAuth } = useUserStore()
@@ -30,6 +31,7 @@ function App() {
         <Route path='/login' element={!user ? <Login /> : <Navigate to='/' />} />
         <Route path='/signup' element={!user ? <Signup /> : <Navigate to='/' />} />
         <Route path='/dashboard' element={user?.role === 'admin' ? <Layout><Admin /></Layout> : <Navigate to='/login' />} />
+        <Route path='/category/:category' element={user ? <Layout><Category /></Layout> : <Navigate to='/login' />} />
       </Routes>
       <Toaster />
 

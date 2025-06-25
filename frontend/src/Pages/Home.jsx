@@ -3,6 +3,7 @@ import { Button } from '../components/ui/button'
 import { ArrowRight, ArrowLeft, ShoppingCartIcon } from 'lucide-react'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../components/ui/carousel'
 import ProductCard from '../components/ProductCard'
+import { Link } from 'react-router'
 const Home = () => {
     return (
         <div>
@@ -55,6 +56,30 @@ const Home = () => {
                         <CarouselNext />
                     </Carousel>
                 </div>
+            </section>
+
+            <section className='container mx-auto py-10'>
+                <h1 className='text-4xl font-bold mb-10'>Shop by category</h1>
+                <div className='grid grid-cols-4 gap-4'>
+                    <Link to='/category/sneakers' className='size-96 overflow-hidden relative flex items-center justify-center'>
+                        <h1 className='absolute text-white text-4xl z-10'>Sneakers</h1>
+                        <img className='object-cover brightness-50' src='/sneakers.webp' />
+                    </Link>
+                    <Link to='/category/running' className='size-96 overflow-hidden relative flex items-center justify-center'>
+                        <h1 className='absolute text-white text-4xl z-10'>Running</h1>
+                        <img className='object-cover brightness-50' src='/running.avif' />
+                    </Link>
+                    <Link to='/category/formal' className='size-96 overflow-hidden relative flex items-center justify-center'>
+                        <h1 className='absolute text-white text-4xl z-10'>Formal</h1>
+                        <img className='object-cover brightness-50' src='/formal.webp' />
+                    </Link>
+                    <Link to='/category/casual' className='size-96 overflow-hidden relative flex items-center justify-center'>
+                        <h1 className='absolute text-white text-4xl z-10'>Casual</h1>
+                        <img className='object-cover brightness-50' src='/casual.jpg' />
+                    </Link>
+                </div>
+
+
             </section>
 
             <section className='flex my-10 items-center justify-center gap-8 container mx-auto max-w-7xl'>
