@@ -4,13 +4,14 @@ import Products from '../components/Products'
 import Analytics from '../components/Analytics'
 import { BarChart2, Bot, GitGraph, Home, PlusCircle, Settings, User, ViewIcon } from "lucide-react";
 import { Button } from '../components/ui/button'
+import useProductStore from '../stores/useProductStore';
 
 const Admin = () => {
 
-    // const { getAllProducts } = useProductStore()
-    // useEffect(() => {
-    //     getAllProducts()
-    // }, [])
+    const { getAllProducts } = useProductStore()
+    useEffect(() => {
+        getAllProducts()
+    }, [])
 
     const [active, setActive] = useState('create')
 
