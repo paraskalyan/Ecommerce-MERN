@@ -11,13 +11,21 @@ import { useUserStore } from './stores/useUserStore'
 import PageLoader from './components/PageLoader'
 import Admin from './Pages/Admin'
 import Category from './Pages/Category'
+import useCartStore from './stores/useCartStore'
+import Cart from './Pages/Cart'
 function App() {
 
   const { user, checkAuth, checkingAuth } = useUserStore()
+  const { cart, getCartItems } = useCartStore()
   console.log(checkingAuth)
   useEffect(() => {
     checkAuth()
   }, [checkAuth]);
+
+  useEffect(() => {
+    getCartItems()
+  }, [getCartItems])
+
 
   if (checkingAuth) return <PageLoader />
 
@@ -32,6 +40,7 @@ function App() {
         <Route path='/signup' element={!user ? <Signup /> : <Navigate to='/' />} />
         <Route path='/dashboard' element={user?.role === 'admin' ? <Layout><Admin /></Layout> : <Navigate to='/login' />} />
         <Route path='/category/:category' element={user ? <Layout><Category /></Layout> : <Navigate to='/login' />} />
+        <Route path='/cart' element={user ? <Layout><Cart /></Layout> : <Navigate to='/login' />} />
       </Routes>
       <Toaster />
 
