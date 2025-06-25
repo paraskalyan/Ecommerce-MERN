@@ -43,6 +43,19 @@ const useCartStore = create((set, get) => ({
       toast.error(error.response.data.message || "An error occurred");
     }
   },
+  removeFromCart: async (productId) => {
+    console.log("Removing item from cart:", productId);
+    try {
+      await axiosInstance.delete(`/cart`, { data: { productId } });
+      set((prevState) => ({
+        cart: prevState.cart.filter((item) => item._id !== productId),
+      }));
+      get().calculateTotals();
+    } catch (error) {
+      toast.error(error.response.data.message || "An error occurred");
+      console.error("Error removing item from cart:", error);
+    }
+  },
 
   calculateTotals: () => {
     const { cart, coupon } = get();
