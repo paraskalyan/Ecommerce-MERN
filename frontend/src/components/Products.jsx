@@ -2,7 +2,9 @@ import React from 'react'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../components/ui/table'
 import useProductStore from '../stores/useProductStore'
 const Products = () => {
-    const { products } = useProductStore()
+    // const { products } = useProductStore()
+    // console.log(products)
+
     return (
         <div>
             <Table>

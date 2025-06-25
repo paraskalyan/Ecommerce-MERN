@@ -23,18 +23,18 @@ const useProductStore = create((set) => ({
     }
   },
 
-  getAllProducts: async () => {
-    set({ loading: true });
-    try {
-      const res = await axiosInstance.get("/products");
-      set({ products: res.data.products });
-    } catch (error) {
-      console.error("Error fetching products:", error);
-      toast.error("Failed to fetch products. Please try again.");
-    } finally {
-      set({ loading: false });
-    }
-  },
+  // getAllProducts: async () => {
+  //   set({ loading: true });
+  //   try {
+  //     const res = await axiosInstance.get("/products");
+  //     set({ products: res.data.products });
+  //   } catch (error) {
+  //     console.error("Error fetching products:", error);
+  //     toast.error("Failed to fetch products. Please try again.");
+  //   } finally {
+  //     set({ loading: false });
+  //   }
+  // },
 }));
 
 export default useProductStore;

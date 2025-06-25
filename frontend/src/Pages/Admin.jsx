@@ -1,36 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CreateProduct from '../components/CreateProduct'
 import Products from '../components/Products'
 import Analytics from '../components/Analytics'
-import AdminSidebar from '../components/AdminSideBar'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
 import { BarChart2, Bot, GitGraph, Home, PlusCircle, Settings, User, ViewIcon } from "lucide-react";
 import { Button } from '../components/ui/button'
 
 const Admin = () => {
 
-    const tabs = [
-        {
-            name: "Home",
-            value: "home",
-            icon: Home,
-        },
-        {
-            name: "Profile",
-            value: "profile",
-            icon: User,
-        },
-        {
-            name: "Messages",
-            value: "messages",
-            icon: Bot,
-        },
-        {
-            name: "Settings",
-            value: "settings",
-            icon: Settings,
-        },
-    ];
+    // const { getAllProducts } = useProductStore()
+    // useEffect(() => {
+    //     getAllProducts()
+    // }, [])
 
     const [active, setActive] = useState('create')
 
