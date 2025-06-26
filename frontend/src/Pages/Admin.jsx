@@ -23,7 +23,7 @@ const Admin = () => {
                 <Button onClick={() => setActive('analytics')} className={`${active === 'analytics' ? 'bg-[#eeeeee]' : 'bg-white'} text-black hover:bg-[#eeeeee] shadow-none rounded-md p-2 justify-start`}><BarChart2 />Analytics</Button>
             </div>
 
-            <div className=' flex-1 container mx-auto my-10'>
+            <div className=' flex-1 container    mx-auto my-10'>
                 {active === 'create' && <CreateProduct />}
                 {active === 'products' && <Products />}
                 {active === 'analytics' && <Analytics />}
