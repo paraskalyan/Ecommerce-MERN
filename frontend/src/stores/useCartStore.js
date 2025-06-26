@@ -20,6 +20,7 @@ const useCartStore = create((set, get) => ({
         error.response?.data?.message || "Failed to fetch cart items."
       );
     }
+    get().calculateTotals();
   },
   addToCart: async (product) => {
     try {
@@ -55,6 +56,23 @@ const useCartStore = create((set, get) => ({
       toast.error(error.response.data.message || "An error occurred");
       console.error("Error removing item from cart:", error);
     }
+  },
+  clearCart: async () => {
+    set({ cart: [], coupon: null, total: 0, subtotal: 0 });
+  },
+  updateQuantity: async (productId, quantity) => {
+    if (quantity === 0) {
+      get().removeFromCart(productId);
+      return;
+    }
+
+    await axiosInstance.put(`/cart/${productId}`, { quantity });
+    set((prevState) => ({
+      cart: prevState.cart.map((item) =>
+        item._id === productId ? { ...item, quantity } : item
+      ),
+    }));
+    get().calculateTotals();
   },
 
   calculateTotals: () => {

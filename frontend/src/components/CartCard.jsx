@@ -5,7 +5,7 @@ import { Button } from './ui/button'
 import useCartStore from '../stores/useCartStore'
 
 const CartCard = ({ product }) => {
-    const { removeFromCart } = useCartStore()
+    const { removeFromCart, updateQuantity } = useCartStore()
     return (
         <div className='border flex gap-3 relative'>
             <img src={product?.image} alt={product?.name} className='w-32 h-32 object-cover' />
@@ -13,9 +13,9 @@ const CartCard = ({ product }) => {
                 <h3 className='text-lg font-semibold'>{product?.name}</h3>
                 <p className='text-sm text-gray-500'>${product?.price}</p>
                 <div className='flex items-center gap-2 mt-2'>
-                    <button className='cursor-pointer '><MinusIcon /></button>
+                    <button onClick={() => updateQuantity(product._id, product?.quantity - 1)} className='cursor-pointer '><MinusIcon /></button>
                     <p className=' '>{product?.quantity}</p>
-                    <button className='cursor-pointer '><PlusIcon /></button>
+                    <button onClick={() => updateQuantity(product._id, product?.quantity + 1)} className='cursor-pointer '><PlusIcon /></button>
                 </div>
                 <button onClick={() => removeFromCart(product._id)} className='cursor-pointer absolute top-2 right-3 text-red-600'><Trash2Icon /></button>
             </div>
