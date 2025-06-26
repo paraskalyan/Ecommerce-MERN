@@ -15,8 +15,8 @@ const Home = () => {
     console.log(products.featuredProducts)
     return (
         <div>
-            <section className='flex items-center  min-h-screen justify-center  gap-3 px-10'>
-                <div className='   flex flex-col  items-start justify-center '>
+            <section className='container flex items-center justify-center min-h-screen mx-auto'>
+                <div className='flex flex-col w-fit'>
                     <h1 className='text-[5rem] font-bold leading-0.5'>
                         Sh<span className='w-[130px] h-[43px] align-middle inline-block border-7 border-orange-500 rounded-full'></span>es
                     </h1>
@@ -26,16 +26,16 @@ const Home = () => {
                         <Button>Shop now</Button>
                     </div>
 
-                    <div className='grid grid-cols-3 gap-3'>
-                        <img className=' size-20 border rounded-full object-contain' src='https://logowik.com/content/uploads/images/t_697_nike.jpg' />
-                        <img className=' size-20 border rounded-full object-contain' src='https://static.vecteezy.com/system/resources/previews/020/336/032/non_2x/puma-logo-puma-icon-free-free-vector.jpg' />
-                        <img className=' size-20 border rounded-full object-contain' src='https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg' />
+                    <div className='grid grid-cols-3 gap-3 w-fit'>
+                        <img className=' size-15 border rounded-full object-contain' src='https://logowik.com/content/uploads/images/t_697_nike.jpg' />
+                        <img className=' size-15 border rounded-full object-contain' src='https://static.vecteezy.com/system/resources/previews/020/336/032/non_2x/puma-logo-puma-icon-free-free-vector.jpg' />
+                        <img className=' size-15 border rounded-full object-contain' src='https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg' />
                     </div>
                 </div>
 
-                <div className='flex   items-center justify-center'>
+                <div className=''>
                     <div className='w-[400px] h-[400px] rounded-full bg-primary/10 absolute -z-10'></div>
-                    <img src='/shoe-bg.png' className='' alt='header-image' />
+                    <img src='/bg-4.jpg' className='w-full' alt='header-image' />
                 </div>
 
             </section>
@@ -71,20 +71,20 @@ const Home = () => {
 
             <section className='container mx-auto py-10'>
                 <h1 className='text-4xl font-bold mb-10'>Shop by category</h1>
-                <div className='grid grid-cols-4 gap-4'>
-                    <Link to='/category/sneakers' className='size-96 overflow-hidden relative flex items-center justify-center'>
+                <div className='grid grid-cols-4'>
+                    <Link to='/category/sneakers' className='size-72 overflow-hidden relative flex items-center justify-center'>
                         <h1 className='absolute text-white text-4xl z-10'>Sneakers</h1>
                         <img className='object-cover brightness-50' src='/sneakers.webp' />
                     </Link>
-                    <Link to='/category/running' className='size-96 overflow-hidden relative flex items-center justify-center'>
+                    <Link to='/category/running' className='size-72 overflow-hidden relative flex items-center justify-center'>
                         <h1 className='absolute text-white text-4xl z-10'>Running</h1>
                         <img className='object-cover brightness-50' src='/running.avif' />
                     </Link>
-                    <Link to='/category/formal' className='size-96 overflow-hidden relative flex items-center justify-center'>
+                    <Link to='/category/formal' className='size-72 overflow-hidden relative flex items-center justify-center'>
                         <h1 className='absolute text-white text-4xl z-10'>Formal</h1>
                         <img className='object-cover brightness-50' src='/formal.webp' />
                     </Link>
-                    <Link to='/category/casual' className='size-96 overflow-hidden relative flex items-center justify-center'>
+                    <Link to='/category/casual' className='size-72 overflow-hidden relative flex items-center justify-center'>
                         <h1 className='absolute text-white text-4xl z-10'>Casual</h1>
                         <img className='object-cover brightness-50' src='/casual.jpg' />
                     </Link>

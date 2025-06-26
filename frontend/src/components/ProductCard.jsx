@@ -9,14 +9,14 @@ const ProductCard = ({ product }) => {
 
     const { addToCart } = useCartStore()
     return (
-        <div className='border w-fit'>
+        <div className='border w-[250px] h-[320px]'>
             <div className='bg-[#f3f3f3]'>
-                <img className=' mix-blend-multiply' width={250} src={product?.image} />
+                <img className=' mix-blend-multiply object-cover w-full' width={170} src={product?.image} />
             </div>
             <div className='p-3 flex justify-between'>
                 <div className='font-bold'>
 
-                    <h3 >{product?.name}</h3>
+                    <h3 className=' truncate max-w-[180px]' >{product?.name}</h3>
                     <h6>${product?.price}</h6>
                 </div>
                 <Button onClick={() => addToCart(product)} ><ShoppingCartIcon /></Button>

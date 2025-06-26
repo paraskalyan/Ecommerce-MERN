@@ -15,6 +15,7 @@ import useCartStore from './stores/useCartStore'
 import Cart from './Pages/Cart'
 import PurchaseSuccess from './Pages/PurchaseSuccess'
 import PurchaseCancelled from './Pages/PurchaseCancelled'
+import Shop from './Pages/Shop'
 function App() {
 
   const { user, checkAuth, checkingAuth } = useUserStore()
@@ -24,10 +25,10 @@ function App() {
     checkAuth()
   }, [checkAuth]);
 
-  useEffect(() => {
-    if (!user) return
-    getCartItems()
-  }, [getCartItems, user])
+  // useEffect(() => {
+  //   if (!user) return
+  //   getCartItems()
+  // }, [getCartItems, user])
 
   console.log("User: ", user)
   console.log("Cart: ", cart)
@@ -47,6 +48,8 @@ function App() {
         <Route path='/dashboard' element={user?.role === 'admin' ? <Layout><Admin /></Layout> : <Navigate to='/login' />} />
         <Route path='/category/:category' element={user ? <Layout><Category /></Layout> : <Navigate to='/login' />} />
         <Route path='/cart' element={user ? <Layout><Cart /></Layout> : <Navigate to='/login' />} />
+        <Route path='/shop' element={user ? <Layout><Shop /></Layout> : <Navigate to='/login' />} />
+
         <Route path='/purchase-success' element={user ? <PurchaseSuccess /> : <Navigate to='/login' />} />
         <Route path='/purchase-cancel' element={user ? <PurchaseCancelled /> : <Navigate to='/login' />} />
 
