@@ -3,7 +3,9 @@ import { Button } from './ui/button'
 import { ShoppingCartIcon } from 'lucide-react'
 import useCartStore from '../stores/useCartStore'
 
+
 const ProductCard = ({ product }) => {
+    console.log(product)
 
     const { addToCart } = useCartStore()
     return (

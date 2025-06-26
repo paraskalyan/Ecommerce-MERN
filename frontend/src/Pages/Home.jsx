@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button } from '../components/ui/button'
 import { ArrowRight, ArrowLeft, ShoppingCartIcon } from 'lucide-react'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../components/ui/carousel'
 import ProductCard from '../components/ProductCard'
 import { Link } from 'react-router'
+import { useUserStore } from '../stores/useUserStore'
+import useProductStore from '../stores/useProductStore'
 const Home = () => {
+    const { fetchFeaturedProducts, products, isLoading } = useProductStore();
+    useEffect(() => {
+        fetchFeaturedProducts();
+    }, [fetchFeaturedProducts]);
+
+    console.log(products.featuredProducts)
     return (
         <div>
             <section className='flex items-center  min-h-screen justify-center  gap-3 px-10'>
@@ -38,24 +46,27 @@ const Home = () => {
                     <h3 className='text-4xl font-bold mb-10'>Trending Products</h3>
                 </div>
 
-                <div>
-                    <Carousel className='w-full'>
-                        <CarouselContent>
-                            {
-                                Array.from({ length: 10 }).map((_, index) => {
-                                    return (
-                                        <CarouselItem className='basis-1/5'>
+                {
+                    !isLoading && products?.featuredProducts?.length > 0 &&
+                    <div>
+                        <Carousel className='w-full'>
+                            <CarouselContent>
+                                {
+                                    products?.featuredProducts?.map((product, index) => {
+                                        return (
+                                            <CarouselItem key={product._id} className='basis-1/5'>
 
-                                            <ProductCard />
-                                        </CarouselItem>
-                                    )
-                                })
-                            }
-                        </CarouselContent>
-                        <CarouselPrevious />
-                        <CarouselNext />
-                    </Carousel>
-                </div>
+                                                <ProductCard product={product} />
+                                            </CarouselItem>
+                                        )
+                                    })
+                                }
+                            </CarouselContent>
+                            <CarouselPrevious />
+                            <CarouselNext />
+                        </Carousel>
+                    </div>
+                }
             </section>
 
             <section className='container mx-auto py-10'>
