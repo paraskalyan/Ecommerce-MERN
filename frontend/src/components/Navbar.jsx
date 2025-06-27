@@ -13,7 +13,7 @@ const Navbar = () => {
     return (
         <header className=' flex items-center justify-between p-4  border-b'>
             <img src='/logo-2.png' width={140} />
-            <nav className=' gap-6 hidden lg:flex md:flex font-semibold'>
+            <nav className=' gap-6 hidden lg:flex md:flex font-medium'>
                 <Link to='/'>Home</Link>
                 <Link to='/shop'>Shop</Link>
                 <Link to='/about'>About</Link>

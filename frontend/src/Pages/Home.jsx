@@ -17,10 +17,10 @@ const Home = () => {
         <div>
             <section className='container flex items-center justify-center min-h-[90vh] mx-auto'>
                 <div className='flex flex-col w-fit px-4 lg:px-0 md:px-0'>
-                    <h1 className='text-[5rem]  font-bold leading-0.5'>
-                        Sh<span className='w-[130px] h-[43px] align-middle inline-block border-7 border-orange-500 rounded-full'></span>es
+                    <h1 className='text-[5rem]  font-semibold leading-0.5 tracking-wider'>
+                        Sh<span className='w-[150px] h-[43px] align-middle inline-block border-8 border-orange-500 rounded-full'></span>es
                     </h1>
-                    <h1 className='text-[5rem] font-bold '>Collect !</h1>
+                    <h1 className='text-[5rem] font-semibold tracking-wider '>Collect !</h1>
                     <div className='flex flex-col  items-start justify-center max-w-md gap-3 my-3'>
                         <h6>Discover your stylish and comfortable shoes, perfect for every occasion and need</h6>
                         <Button>Shop now</Button>
