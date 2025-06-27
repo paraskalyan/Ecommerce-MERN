@@ -15,9 +15,9 @@ const Home = () => {
     console.log(products)
     return (
         <div>
-            <section className='container flex items-center justify-center min-h-screen mx-auto'>
+            <section className='container flex items-center justify-center min-h-[90vh] mx-auto'>
                 <div className='flex flex-col w-fit px-4 lg:px-0 md:px-0'>
-                    <h1 className='text-[5rem] font-bold leading-0.5'>
+                    <h1 className='text-[5rem]  font-bold leading-0.5'>
                         Sh<span className='w-[130px] h-[43px] align-middle inline-block border-7 border-orange-500 rounded-full'></span>es
                     </h1>
                     <h1 className='text-[5rem] font-bold '>Collect !</h1>
@@ -26,10 +26,13 @@ const Home = () => {
                         <Button>Shop now</Button>
                     </div>
 
-                    <div className='grid grid-cols-3 gap-3 w-fit'>
+                    <div className='grid grid-cols-3 gap-3 w-fit bg-white'>
                         <img className=' size-15 border rounded-full object-contain' src='https://logowik.com/content/uploads/images/t_697_nike.jpg' />
                         <img className=' size-15 border rounded-full object-contain' src='https://static.vecteezy.com/system/resources/previews/020/336/032/non_2x/puma-logo-puma-icon-free-free-vector.jpg' />
-                        <img className=' size-15 border rounded-full object-contain' src='https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg' />
+                        <img className=' size-15 border rounded-full object-contain' src='https://static.vecteezy.com/system/resources/previews/010/994/239/non_2x/adidas-logo-black-symbol-clothes-design-icon-abstract-football-illustration-with-white-background-free-vector.jpg' />
+                    </div>
+                    <div className='mt-4'>
+                        <h5>+ 7 more brands</h5>
                     </div>
                 </div>
 
@@ -54,7 +57,7 @@ const Home = () => {
                                 {
                                     products?.map((product, index) => {
                                         return (
-                                            <CarouselItem key={product._id} className='basis-1/1 lg:basis-1/5'>
+                                            <CarouselItem key={product._id} className='basis-1/1 md:basis-1/3 lg:basis-1/5'>
 
                                                 <ProductCard product={product} />
                                             </CarouselItem>
@@ -69,9 +72,30 @@ const Home = () => {
                 }
             </section>
 
+            <section className=' hidden my-10 items-center justify-center gap-8 container mx-auto max-w-7xl'>
+                <div className='flex-1 flex flex-col items-center justify-center'>
+                    <div className=''>
+
+                        <h1 className='text-4xl font-semibold'>See our new Collection</h1>
+                    </div>
+                    <div>
+                        <img className='rounded-2xl' width={500} src='https://redtape.com/cdn/shop/files/RSO3793M_1.jpg?v=1750746575' />
+                    </div>
+                </div>
+
+                <div className='flex-1 space-y-4'>
+                    <div>
+                        <img className='rounded-2xl' width={500} src='https://redtape.com/cdn/shop/files/RSO3636M_1.jpg?v=1750746677' />
+                    </div>
+                    <div className='space-y-2'>
+                        <h6>Discover our new collection now! Experience fresh styles and designs, perfect for updating your wardrobe with the latest trends</h6>
+                        <Button variant='outline'>Buy now</Button>
+                    </div>
+                </div>
+            </section>
             <section className='container mx-auto py-10'>
-                <h1 className='text-2xl lg:text-4xl md:text-3xl font-bold mb-10 text-center'>Shop by category</h1>
-                <div className='grid grid-cols-1 lg:gap-3 md:gap-3 md:grid-cols-3 lg:grid-cols-4 place-items-center'>
+                <h1 className='text-2xl lg:text-4xl md:text-3xl font-bold mb-10 text-center lg:text-left'>Shop by category</h1>
+                <div className='grid grid-cols-1 lg:gap-3 md:gap-3 md:grid-cols-2 lg:grid-cols-4 place-items-center'>
                     <Link to='/category/sneakers' className='lg:size-72 size-full overflow-hidden relative flex items-center justify-center'>
                         <h1 className='absolute text-white text-4xl z-10'>Sneakers</h1>
                         <img className='object-cover brightness-50' src='/sneakers.webp' />
@@ -93,27 +117,6 @@ const Home = () => {
 
             </section>
 
-            <section className='hidden flex-col lg:flex-row md:flex-row my-10 items-center justify-center gap-8 container mx-auto max-w-7xl'>
-                <div className='flex-1 flex flex-col items-center justify-center'>
-                    <div className=''>
-
-                        <h1 className='text-2xl font-semibold'>See our new Collection</h1>
-                    </div>
-                    <div>
-                        <img className='rounded-2xl' width={300} src='https://redtape.com/cdn/shop/files/RSO3793M_1.jpg?v=1750746575' />
-                    </div>
-                </div>
-
-                <div className='flex-1 space-y-4'>
-                    <div>
-                        <img className='rounded-2xl' width={300} src='https://redtape.com/cdn/shop/files/RSO3636M_1.jpg?v=1750746677' />
-                    </div>
-                    <div className='space-y-2'>
-                        <h6>Discover our new collection now! Experience fresh styles and designs, perfect for updating your wardrobe with the latest trends</h6>
-                        <Button variant='outline'>Buy now</Button>
-                    </div>
-                </div>
-            </section>
 
 
             <section className='container mx-auto mt-20 px-4'>

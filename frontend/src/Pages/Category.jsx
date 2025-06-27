@@ -12,14 +12,14 @@ const Category = () => {
 
     console.log("Category Products: ", products)
     return (
-        <div className='container mx-auto my-10 min-h-screen'>
+        <div className='container mx-auto my-10 min-h-screen px-4'>
             <h1 className='text-2xl font-bold uppercase'>{category}</h1>
             <div className='mt-6'>
                 {
                     products.length === 0 ?
                         <div>No products found in this category.</div>
                         :
-                        <div className='grid grid-cols-3 gap-4'>
+                        <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
                             {products.map(product => (
                                 <ProductCard key={product._id} product={product} />
                             ))}

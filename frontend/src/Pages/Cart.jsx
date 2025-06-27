@@ -8,7 +8,7 @@ const Cart = () => {
     return (
         <div className='container mx-auto my-10 px-4 min-h-screen'>
             <h1 className='text-2xl lg:text-3xl font-bold'>Your Cart</h1>
-            <div className='flex gap-6 px-10 mt-8'>
+            <div className='flex flex-col lg:flex-row gap-6 lg:px-10 md:px-7 mt-8'>
 
                 <div className='flex-[2]'>
                     {

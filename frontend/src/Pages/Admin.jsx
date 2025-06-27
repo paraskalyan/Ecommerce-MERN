@@ -16,8 +16,8 @@ const Admin = () => {
     const [active, setActive] = useState('create')
 
     return (
-        <div className='w-full flex flex-col md:flex-row lg:flex-row min-h-screen'>
-            <div className=' w-full md:w-44 lg:w-44 lg:flex md:flex flex-col gap-2 py-4 px-4 border-r '>
+        <div className='w-full flex flex-col md:flex-col lg:flex-row min-h-screen'>
+            <div className=' w-full lg:w-44 lg:flex md:flex flex-col gap-2 py-4 px-4 border-r '>
                 <Button onClick={() => setActive('create')} className={`${active === 'create' ? 'bg-[#eeeeee]' : 'bg-white'} text-black hover:bg-[#eeeeee] shadow-none rounded-md p-2 justify-start`}><PlusCircle />Create Product</Button>
                 <Button onClick={() => setActive('products')} className={`${active === 'products' ? 'bg-[#eeeeee]' : 'bg-white'} text-black hover:bg-[#eeeeee] shadow-none rounded-md p-2 justify-start`}><ViewIcon />Products</Button>
                 <Button onClick={() => setActive('analytics')} className={`${active === 'analytics' ? 'bg-[#eeeeee]' : 'bg-white'} text-black hover:bg-[#eeeeee] shadow-none rounded-md p-2 justify-start`}><BarChart2 />Analytics</Button>

@@ -22,8 +22,8 @@ const Shop = () => {
     if (loading) return <PageLoader />
 
     return (
-        <div className='container mx-auto flex flex-col my-10 min-h-screen'>
-            <div className='w-62 border px-4'>
+        <div className='container mx-auto flex flex-col lg:flex-row my-10 min-h-screen'>
+            <div className='lg:w-62 w-full justify-between lg:justify-normal border px-4 flex lg:flex-col'>
                 <div className='border-b py-5'>
                     <h2 className='text-lg font-bold'>Product Categories</h2>
                     <div className=' flex flex-col items-start gap-2 mt-4'>
@@ -67,9 +67,9 @@ const Shop = () => {
                 </div>
             </div>
 
-            <div className='flex-1 px-5'>
+            <div className='flex-1 px-5 mt-10 lg:mt-0'>
                 <h1 className='text-2xl font-bold'>{categoryName}</h1>
-                <div className=' grid grid-cols-1 mt-5'>
+                <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mt-5'>
 
                     {
                         products?.map((product) => {

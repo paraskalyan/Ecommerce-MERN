@@ -8,7 +8,7 @@ const Products = () => {
     console.log("Products:   ", products)
 
     return (
-        <div className='px-3 lg:px-15 md:px-15'>
+        <div className='px-3 lg:px-15 md:px-8'>
             <Table>
                 <TableHeader className='bg-[#eeeeee]'>
                     <TableRow className='uppercase'>
