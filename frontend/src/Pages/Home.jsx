@@ -12,7 +12,7 @@ const Home = () => {
         fetchFeaturedProducts();
     }, [fetchFeaturedProducts]);
 
-    console.log(products.featuredProducts)
+    console.log(products)
     return (
         <div>
             <section className='container flex items-center justify-center min-h-screen mx-auto'>
@@ -33,28 +33,28 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className=''>
+                <div className='hidden lg:block'>
                     <div className='w-[400px] h-[400px] rounded-full bg-primary/10 absolute -z-10'></div>
                     <img src='/bg-4.jpg' className='w-full' alt='header-image' />
                 </div>
 
             </section>
 
-            <section className='container mx-auto py-10'>
+            <section className='container mx-auto py-10 '>
                 <div className='flex justify-between'>
 
                     <h3 className='text-4xl font-bold mb-10'>Trending Products</h3>
                 </div>
 
                 {
-                    !isLoading && products?.featuredProducts?.length > 0 &&
+                    !isLoading && products?.length > 0 &&
                     <div>
                         <Carousel className='w-full'>
                             <CarouselContent>
                                 {
-                                    products?.featuredProducts?.map((product, index) => {
+                                    products?.map((product, index) => {
                                         return (
-                                            <CarouselItem key={product._id} className='basis-1/5'>
+                                            <CarouselItem key={product._id} className='basis-1/1 lg:basis-1/5'>
 
                                                 <ProductCard product={product} />
                                             </CarouselItem>
@@ -62,8 +62,8 @@ const Home = () => {
                                     })
                                 }
                             </CarouselContent>
-                            <CarouselPrevious />
-                            <CarouselNext />
+                            {/* <CarouselPrevious />
+                            <CarouselNext /> */}
                         </Carousel>
                     </div>
                 }
@@ -71,7 +71,7 @@ const Home = () => {
 
             <section className='container mx-auto py-10'>
                 <h1 className='text-4xl font-bold mb-10'>Shop by category</h1>
-                <div className='grid grid-cols-4'>
+                <div className='grid grid-cols-1 gap-3 md:grid-cols-3 lg:grid-cols-4'>
                     <Link to='/category/sneakers' className='size-72 overflow-hidden relative flex items-center justify-center'>
                         <h1 className='absolute text-white text-4xl z-10'>Sneakers</h1>
                         <img className='object-cover brightness-50' src='/sneakers.webp' />
@@ -93,20 +93,20 @@ const Home = () => {
 
             </section>
 
-            <section className='flex my-10 items-center justify-center gap-8 container mx-auto max-w-7xl'>
+            <section className='hidden flex-col lg:flex-row md:flex-row my-10 items-center justify-center gap-8 container mx-auto max-w-7xl'>
                 <div className='flex-1 flex flex-col items-center justify-center'>
                     <div className=''>
 
-                        <h1 className='text-[2.6rem] font-semibold'>See our new Collection</h1>
+                        <h1 className='text-2xl font-semibold'>See our new Collection</h1>
                     </div>
                     <div>
-                        <img className='rounded-2xl' width={500} src='https://redtape.com/cdn/shop/files/RSO3793M_1.jpg?v=1750746575' />
+                        <img className='rounded-2xl' width={300} src='https://redtape.com/cdn/shop/files/RSO3793M_1.jpg?v=1750746575' />
                     </div>
                 </div>
 
                 <div className='flex-1 space-y-4'>
                     <div>
-                        <img className='rounded-2xl' width={500} src='https://redtape.com/cdn/shop/files/RSO3636M_1.jpg?v=1750746677' />
+                        <img className='rounded-2xl' width={300} src='https://redtape.com/cdn/shop/files/RSO3636M_1.jpg?v=1750746677' />
                     </div>
                     <div className='space-y-2'>
                         <h6>Discover our new collection now! Experience fresh styles and designs, perfect for updating your wardrobe with the latest trends</h6>
@@ -119,9 +119,9 @@ const Home = () => {
             <section className='container mx-auto mt-20 '>
                 <h1 className='font-semibold text-xl text-center tracking-widest text-[#a1a1a1]'>TECHNOLOGY</h1>
                 <h3 className=' font-bold text-4xl text-center mt-3'>Details Down to Sneaker Level</h3>
-                <div className='mt-10 grid grid-cols-3'>
-                    <img className='rounded-2xl' src='/f-1.png' />
+                <div className='mt-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3'>
                     <img className='rounded-2xl' src='/f-2.png' />
+                    <img className='rounded-2xl' src='/f-1.png' />
                     <img className='rounded-2xl' src='/f-3.png' />
                 </div>
             </section>

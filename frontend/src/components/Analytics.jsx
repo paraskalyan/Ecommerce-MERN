@@ -45,8 +45,8 @@ const Analytics = () => {
     }
     else { console.log(analyticsData); console.log(dailySalesData) }
     return (
-        <div className='px-25 space-y-8'>
-            <div className='grid grid-cols-4 gap-4'>
+        <div className='px-4 ;g:px-44 md:px-30 space-y-8'>
+            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4'>
                 <AnalyticsCard title='Total Users' value={analyticsData.users} />
                 <AnalyticsCard title='Total Products' value={analyticsData.products} />
                 <AnalyticsCard title='Total Sales' value={analyticsData.totalSales} />
