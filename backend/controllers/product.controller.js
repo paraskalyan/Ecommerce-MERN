@@ -7,7 +7,6 @@ export const getAllProducts = async (req, res) => {
     const products = await Product.find({});
     res.status(200).json({ products });
   } catch (error) {
-    console.error("Error fetching products:", error);
     return res.status(500).json({ message: "Internal server error" });
   }
 };
@@ -28,7 +27,6 @@ export const getFeaturedProducts = async (req, res) => {
 
     res.status(200).json(featuredProducts);
   } catch (error) {
-    console.error("Error fetching featured products:", error);
     return res.status(500).json({ message: "Internal server error" });
   }
 };
@@ -56,7 +54,6 @@ export const createProduct = async (req, res) => {
     });
     res.status(201).json({ message: "Product created successfully", product });
   } catch (error) {
-    console.error("Error creating product:", error);
     return res.status(500).json({ message: "Internal server error" });
   }
 };
@@ -75,7 +72,6 @@ export const deleteProduct = async (req, res) => {
     await Product.findByIdAndDelete(req.params.id);
     res.status(200).json({ message: "Product deleted successfully" });
   } catch (error) {
-    console.error("Error deleting product:", error);
     return res.status(500).json({ message: "Internal server error" });
   }
 };
@@ -88,7 +84,6 @@ export const getRecommendedProducts = async (req, res) => {
       { $project: { name: 1, price: 1, image: 1, description: 1 } },
     ]);
   } catch (error) {
-    console.error("Error fetching recommended products:", error);
     return res.status(500).json({ message: "Internal server error" });
   }
 };
@@ -104,7 +99,6 @@ export const getProductsByCategory = async (req, res) => {
     }
     res.status(200).json({ products });
   } catch (error) {
-    console.error("Error fetching products by category:", error);
     return res.status(500).json({ message: "Internal server error" });
   }
 };
@@ -120,7 +114,6 @@ export const toggleFeaturedProduct = async (req, res) => {
     await updateFeaturedProductsCache();
     res.status(200).json(product);
   } catch (error) {
-    console.error("Error toggling featured product:", error);
     return res.status(500).json({ message: "Internal server error" });
   }
 };

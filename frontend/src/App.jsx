@@ -20,18 +20,15 @@ function App() {
 
   const { user, checkAuth, checkingAuth } = useUserStore()
   const { cart, getCartItems } = useCartStore()
-  console.log(checkingAuth)
   useEffect(() => {
     checkAuth()
   }, [checkAuth]);
 
-  // useEffect(() => {
-  //   if (!user) return
-  //   getCartItems()
-  // }, [getCartItems, user])
+  useEffect(() => {
+    if (!user) return
+    getCartItems()
+  }, [getCartItems, user])
 
-  console.log("User: ", user)
-  console.log("Cart: ", cart)
 
 
   if (checkingAuth) return <PageLoader />

@@ -8,14 +8,11 @@ const Shop = () => {
     const { getAllProducts, products, loading, getProductsByCategory } = useProductStore();
     const [categoryName, setCategoryName] = useState('All Products')
 
-    console.log(loading)
 
     useEffect(() => {
-        console.log("INNNNNNNNN")
         getAllProducts();
     }, [])
 
-    console.log(products)
 
     const sizes = ['6', '7', '8', '9', '10', '11', '12', '13']
 

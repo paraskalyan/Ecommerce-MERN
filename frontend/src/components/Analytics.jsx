@@ -13,6 +13,7 @@ import {
     Legend,
 } from 'recharts';
 import { ChartSalesRevenue } from './Chart';
+import PageLoader from './PageLoader';
 
 const Analytics = () => {
     const [analyticsData, setAnalyticsData] = useState({
@@ -41,9 +42,8 @@ const Analytics = () => {
     }, []);
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <PageLoader />;
     }
-    else { console.log(analyticsData); console.log(dailySalesData) }
     return (
         <div className='px-4 lg:px-44  space-y-8'>
             <div className='grid grid-cols-1 md:grid-cols-4 gap-4'>

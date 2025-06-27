@@ -9,7 +9,6 @@ export const useUserStore = create((set, get) => ({
 
   signup: async ({ name, email, password, confirmPassword }) => {
     set({ loading: true });
-    console.log(name, email, password, confirmPassword);
     if (password != confirmPassword) {
       set({ loading: false });
       return toast.error("Passwords do not match");
@@ -35,7 +34,6 @@ export const useUserStore = create((set, get) => ({
         email,
         password,
       });
-      console.log(res.data.user);
       set({ user: res.data.user, loading: false });
     } catch (error) {
       set({ loading: false });
@@ -57,7 +55,6 @@ export const useUserStore = create((set, get) => ({
       set({ user: res.data, checkingAuth: false });
     } catch (error) {
       set({ checkingAuth: false, user: null });
-      console.log(error);
     }
   },
   refreshToken: async () => {

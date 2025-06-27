@@ -10,7 +10,6 @@ const Category = () => {
         getProductsByCategory(category)
     }, [getProductsByCategory, category]);
 
-    console.log("Category Products: ", products)
     return (
         <div className='container mx-auto my-10 min-h-screen px-4'>
             <h1 className='text-2xl font-bold uppercase'>{category}</h1>

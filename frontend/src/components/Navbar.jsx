@@ -8,7 +8,6 @@ const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false)
     const { user } = useUserStore()
     const { cart } = useCartStore()
-    console.log("Cart: ", cart)
     const isAdmin = user.role === 'admin'
     return (
         <header className=' flex items-center justify-between p-4  border-b'>

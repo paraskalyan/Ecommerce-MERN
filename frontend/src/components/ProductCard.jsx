@@ -5,7 +5,6 @@ import useCartStore from '../stores/useCartStore'
 
 
 const ProductCard = ({ product }) => {
-    console.log(product)
 
     const { addToCart } = useCartStore()
     return (

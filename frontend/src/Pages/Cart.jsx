@@ -4,7 +4,6 @@ import CartCard from '../components/CartCard'
 import OrderSummary from '../components/OrderSummary'
 const Cart = () => {
     const { cart } = useCartStore()
-    console.log("Cart Items: ", cart)
     return (
         <div className='container mx-auto my-10 px-4 min-h-screen'>
             <h1 className='text-2xl lg:text-3xl font-bold'>Your Cart</h1>

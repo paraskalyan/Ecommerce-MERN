@@ -50,7 +50,6 @@ const OrderSummary = () => {
         const result = await stripe.redirectToCheckout({
             sessionId: session.id
         })
-        console.log(session)
     }
     return (
         <Card>

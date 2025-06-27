@@ -12,7 +12,6 @@ const Home = () => {
         fetchFeaturedProducts();
     }, [fetchFeaturedProducts]);
 
-    console.log(products)
     return (
         <div>
             <section className='container flex items-center justify-center min-h-[90vh] mx-auto'>

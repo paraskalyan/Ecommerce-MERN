@@ -53,7 +53,6 @@ const CreateProduct = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Form Data:', formData);
         createProduct(formData);
     };
 
