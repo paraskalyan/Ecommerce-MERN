@@ -18,7 +18,7 @@ connectDB();
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://192.168.29.102:5173",
+    origin: "https://sneaksy.vercel.app",
     credentials: true,
   })
 );
