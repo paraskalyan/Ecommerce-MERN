@@ -8,10 +8,10 @@ const Products = () => {
     console.log("Products:   ", products)
 
     return (
-        <div>
+        <div className='px-3 lg:px-15 md:px-15'>
             <Table>
                 <TableHeader className='bg-[#eeeeee]'>
-                    <TableRow>
+                    <TableRow className='uppercase'>
                         <TableHead>Product</TableHead>
                         <TableHead>Price</TableHead>
                         <TableHead>Brand</TableHead>
@@ -30,7 +30,7 @@ const Products = () => {
                                     <TableCell>{product.name}</TableCell>
                                     <TableCell>${product.price}</TableCell>
                                     <TableCell>{product.brand}</TableCell>
-                                    <TableCell>{product.category}</TableCell>
+                                    <TableCell>{product.category.charAt(0).toUpperCase() + product.category.slice(1)}</TableCell>
                                     <TableCell>{product.stock}</TableCell>
                                     <TableCell><Button onClick={() => toggleFeaturedProduct(product._id)} className={`${product.isFeatured ? 'bg-yellow-400' : 'bg-gray-300'}`}><StarIcon /></Button></TableCell>
                                     <TableCell>

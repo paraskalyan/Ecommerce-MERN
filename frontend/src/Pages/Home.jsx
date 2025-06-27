@@ -16,7 +16,7 @@ const Home = () => {
     return (
         <div>
             <section className='container flex items-center justify-center min-h-screen mx-auto'>
-                <div className='flex flex-col w-fit'>
+                <div className='flex flex-col w-fit px-4 lg:px-0 md:px-0'>
                     <h1 className='text-[5rem] font-bold leading-0.5'>
                         Sh<span className='w-[130px] h-[43px] align-middle inline-block border-7 border-orange-500 rounded-full'></span>es
                     </h1>
@@ -40,17 +40,17 @@ const Home = () => {
 
             </section>
 
-            <section className='container mx-auto py-10 '>
-                <div className='flex justify-between'>
+            <section className='container mx-auto px-4 py-10 '>
 
-                    <h3 className='text-4xl font-bold mb-10'>Trending Products</h3>
-                </div>
+
+                <h3 className='text-2xl md:text-3xl lg:text-3xl font-bold mb-10'>Trending Products</h3>
+
 
                 {
                     !isLoading && products?.length > 0 &&
-                    <div>
+                    <div className=''>
                         <Carousel className='w-full'>
-                            <CarouselContent>
+                            <CarouselContent className=' flex items-center'>
                                 {
                                     products?.map((product, index) => {
                                         return (
@@ -62,29 +62,29 @@ const Home = () => {
                                     })
                                 }
                             </CarouselContent>
-                            {/* <CarouselPrevious />
-                            <CarouselNext /> */}
+                            <CarouselPrevious className="top-[calc(100%+0.5rem)] translate-y-0 left-0" />
+                            <CarouselNext className="top-[calc(100%+0.5rem)] translate-y-0 left-2 translate-x-full" />
                         </Carousel>
                     </div>
                 }
             </section>
 
             <section className='container mx-auto py-10'>
-                <h1 className='text-4xl font-bold mb-10'>Shop by category</h1>
-                <div className='grid grid-cols-1 gap-3 md:grid-cols-3 lg:grid-cols-4'>
-                    <Link to='/category/sneakers' className='size-72 overflow-hidden relative flex items-center justify-center'>
+                <h1 className='text-2xl lg:text-4xl md:text-3xl font-bold mb-10 text-center'>Shop by category</h1>
+                <div className='grid grid-cols-1 lg:gap-3 md:gap-3 md:grid-cols-3 lg:grid-cols-4 place-items-center'>
+                    <Link to='/category/sneakers' className='lg:size-72 size-full overflow-hidden relative flex items-center justify-center'>
                         <h1 className='absolute text-white text-4xl z-10'>Sneakers</h1>
                         <img className='object-cover brightness-50' src='/sneakers.webp' />
                     </Link>
-                    <Link to='/category/running' className='size-72 overflow-hidden relative flex items-center justify-center'>
+                    <Link to='/category/running' className='lg:size-72 size-full overflow-hidden relative flex items-center justify-center'>
                         <h1 className='absolute text-white text-4xl z-10'>Running</h1>
                         <img className='object-cover brightness-50' src='/running.avif' />
                     </Link>
-                    <Link to='/category/formal' className='size-72 overflow-hidden relative flex items-center justify-center'>
+                    <Link to='/category/formal' className='lg:size-72 size-full overflow-hidden relative flex items-center justify-center'>
                         <h1 className='absolute text-white text-4xl z-10'>Formal</h1>
                         <img className='object-cover brightness-50' src='/formal.webp' />
                     </Link>
-                    <Link to='/category/casual' className='size-72 overflow-hidden relative flex items-center justify-center'>
+                    <Link to='/category/casual' className='lg:size-72 size-full overflow-hidden relative flex items-center justify-center'>
                         <h1 className='absolute text-white text-4xl z-10'>Casual</h1>
                         <img className='object-cover brightness-50' src='/casual.jpg' />
                     </Link>
@@ -116,10 +116,10 @@ const Home = () => {
             </section>
 
 
-            <section className='container mx-auto mt-20 '>
+            <section className='container mx-auto mt-20 px-4'>
                 <h1 className='font-semibold text-xl text-center tracking-widest text-[#a1a1a1]'>TECHNOLOGY</h1>
-                <h3 className=' font-bold text-4xl text-center mt-3'>Details Down to Sneaker Level</h3>
-                <div className='mt-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3'>
+                <h3 className=' font-bold text-2xl md:text-3xl lg:text-4xl text-center mt-3'>Details Down to Sneaker Level</h3>
+                <div className='mt-10 grid gap-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-3'>
                     <img className='rounded-2xl' src='/f-2.png' />
                     <img className='rounded-2xl' src='/f-1.png' />
                     <img className='rounded-2xl' src='/f-3.png' />
