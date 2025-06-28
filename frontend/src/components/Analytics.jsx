@@ -67,7 +67,7 @@ const Analytics = () => {
                 </ResponsiveContainer>
             </div> */}
 
-            <ChartSalesRevenue />
+            <ChartSalesRevenue data={dailySalesData} />
 
 
         </div>

@@ -1,32 +1,30 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router'
-import { MenuIcon, SearchIcon, ShoppingBasketIcon, ShoppingCartIcon, User2Icon, XIcon } from 'lucide-react'
+import { LogOutIcon, MenuIcon, SearchIcon, ShoppingBasketIcon, ShoppingCartIcon, User2Icon, XIcon } from 'lucide-react'
 import { Button } from './ui/button'
 import { useUserStore } from '../stores/useUserStore'
 import useCartStore from '../stores/useCartStore'
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false)
-    const { user } = useUserStore()
+    const { user, logout } = useUserStore()
     const { cart } = useCartStore()
     const isAdmin = user.role === 'admin'
+
     return (
         <header className=' flex items-center justify-between p-4  border-b'>
             <img src='/logo-2.png' width={140} />
             <nav className=' gap-6 hidden lg:flex md:flex font-medium'>
                 <Link to='/'>Home</Link>
                 <Link to='/shop'>Shop</Link>
-                <Link to='/about'>About</Link>
-                <Link to='/blog'>Blog</Link>
-                <Link to='/contact'>Contact</Link>
             </nav>
-            <div className='md:flex lg:flex items-center gap-4 hidden'>
+            <div className='md:flex lg:flex items-center gap-6 hidden'>
                 {isAdmin && <Link to='/dashboard'><Button>Dashboard</Button></Link>}
                 <SearchIcon />
                 <Link to='/cart' className='relative'>
                     <span className='absolute -top-3 -right-2 z-10 bg-black rounded-full text-white w-5 h-5 text-sm text-center font-bold'>{cart?.length}</span>
                     <ShoppingCartIcon />
                 </Link>
-                <User2Icon />
+                <button className='cursor-pointer' onClick={logout}><LogOutIcon /></button>
             </div>
 
             {

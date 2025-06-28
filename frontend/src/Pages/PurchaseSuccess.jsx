@@ -9,7 +9,7 @@ import { Link } from 'react-router';
 
 const PurchaseSuccess = () => {
     const [isProcessing, setIsProcessing] = useState(true);
-    const { clearCart } = useCartStore();
+    const { clearCart, removeFromCart } = useCartStore();
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -19,6 +19,7 @@ const PurchaseSuccess = () => {
                     sessionId,
                 });
                 clearCart();
+                removeFromCart()
             } catch (error) {
                 console.log(error);
             } finally {

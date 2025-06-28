@@ -54,7 +54,7 @@ export function SignupForm({
                     <Input value={formData.confirmPassword} onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })} id="confirm-password" type="password" required />
                 </div>
                 <Button type="submit" className="w-full">
-                    Singup
+                    Signup
                 </Button>
                 <div
                     className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">

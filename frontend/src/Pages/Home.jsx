@@ -35,9 +35,8 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className='hidden lg:block'>
-                    <div className='w-[400px] h-[400px] rounded-full bg-primary/10 absolute -z-10'></div>
-                    <img src='/bg-4.jpg' className='w-full' alt='header-image' />
+                <div className='hidden lg:block flex-1 '>
+                    <img src='/nb3.png' className='scale-x-[-1]' alt='header-image' />
                 </div>
 
             </section>

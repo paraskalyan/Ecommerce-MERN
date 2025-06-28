@@ -36,7 +36,7 @@ const chartConfig = {
     revenue: { label: "Revenue", color: "var(--chart-2)" },
 };
 
-export function ChartSalesRevenue() {
+export function ChartSalesRevenue({ data }) {
     return (
         <Card className=''>
             <CardHeader>
@@ -48,7 +48,7 @@ export function ChartSalesRevenue() {
             <CardContent className=''>
                 <ChartContainer className='h-[350px] w-full' config={chartConfig}>
                     <AreaChart
-                        data={chartData}
+                        data={data}
                         margin={{ left: 12, right: 12 }}
                     >
                         <CartesianGrid vertical={false} />

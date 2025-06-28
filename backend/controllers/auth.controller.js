@@ -29,16 +29,14 @@ const setCookies = (res, accessToken, refreshToken) => {
   console.log(process.env.NODE_ENV);
   res.cookie("accessToken", accessToken, {
     httpOnly: true,
-    secure: true,
-    sameSite: "None",
-    domain: ".vercel.app",
+    sameSite: "strict",
+    secure: process.env.NODE_ENV === "production",
     maxAge: 60 * 60 * 1000,
   });
   res.cookie("refreshToken", refreshToken, {
     httpOnly: true,
-    secure: true,
-    sameSite: "None",
-    domain: ".vercel.app",
+    sameSite: "strict",
+    secure: process.env.NODE_ENV === "production",
     maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
   });
 };
