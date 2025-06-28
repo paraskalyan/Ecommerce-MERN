@@ -50,7 +50,7 @@ const Analytics = () => {
                 <AnalyticsCard title='Total Users' value={analyticsData.users} />
                 <AnalyticsCard title='Total Products' value={analyticsData.products} />
                 <AnalyticsCard title='Total Sales' value={analyticsData.totalSales} />
-                <AnalyticsCard title='Total Revenue' value={analyticsData.totalRevenue} />
+                <AnalyticsCard title='Total Revenue' value={analyticsData.totalRevenue.toFixed(2)} />
             </div>
             {/* <div className="w-full h-[300px] rounded-xl bg-white p-4 shadow">
                 <h2 className="text-lg font-semibold mb-4">Sales Overview</h2>

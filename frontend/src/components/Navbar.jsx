@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router'
-import { LogOutIcon, MenuIcon, SearchIcon, ShoppingBasketIcon, ShoppingCartIcon, User2Icon, XIcon } from 'lucide-react'
+import { ContactIcon, HomeIcon, LayoutDashboard, LogOutIcon, MenuIcon, SearchIcon, ShoppingBag, ShoppingBasketIcon, ShoppingCartIcon, User2Icon, XIcon } from 'lucide-react'
 import { Button } from './ui/button'
 import { useUserStore } from '../stores/useUserStore'
 import useCartStore from '../stores/useCartStore'
@@ -14,8 +14,9 @@ const Navbar = () => {
         <header className=' flex items-center justify-between p-4  border-b'>
             <img src='/logo-2.png' width={140} />
             <nav className=' gap-6 hidden lg:flex md:flex font-medium'>
-                <Link to='/'>Home</Link>
-                <Link to='/shop'>Shop</Link>
+                <Link to='/' className='flex gap-2 items-center hover:bg-[#f4f4f4] p-3 rounded-lg'><HomeIcon />Home</Link>
+                <Link to='/shop' className='flex gap-2 items-center hover:bg-[#f4f4f4] p-3 rounded-lg'><ShoppingBag />Shop</Link>
+                <Link className='flex gap-2 items-center hover:bg-[#f4f4f4] p-3 rounded-lg'><ContactIcon />Contact</Link>
             </nav>
             <div className='md:flex lg:flex items-center gap-6 hidden'>
                 {isAdmin && <Link to='/dashboard'><Button>Dashboard</Button></Link>}
@@ -29,10 +30,12 @@ const Navbar = () => {
 
             {
                 menuOpen &&
-                <nav className='md:hidden lg:hidden absolute gap-4 items-center top-15 left-0 p-4 z-10 shadow bg-[#f8f8f8] w-full flex flex-col'>
-                    <Link to='/'>Home</Link>
-                    <Link to='/shop'>Shop</Link>
-                    {isAdmin && <Link to='/dashboard'>Dashboard</Link>}
+                <nav className='md:hidden lg:hidden absolute gap-6 items-center top-15 left-0 p-4 z-10 shadow bg-[#f8f8f8] w-full flex flex-col'>
+                    <Link to='/' className='flex gap-2 items-center'><HomeIcon />Home</Link>
+                    <Link to='/shop' className='flex gap-2 items-center'><ShoppingBag />Shop</Link>
+                    {isAdmin && <Link to='/dashboard' className='flex gap-2 items-center'><LayoutDashboard />Dashboard</Link>}
+                    <button className='cursor-pointer inline-flex items-center gap-2' onClick={logout}><LogOutIcon />Logout</button>
+
 
                 </nav>
             }

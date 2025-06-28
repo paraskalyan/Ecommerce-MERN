@@ -15,7 +15,7 @@ const Home = () => {
     return (
         <div>
             <section className='container flex items-center justify-center min-h-[90vh] mx-auto'>
-                <div className='flex flex-col w-fit px-4 lg:px-0 md:px-0'>
+                <div className='flex flex-col w-fit px-4 '>
                     <h1 className='text-[5rem]  font-semibold leading-0.5 tracking-wider'>
                         Sh<span className='w-[150px] h-[43px] align-middle inline-block border-8 border-orange-500 rounded-full'></span>es
                     </h1>
